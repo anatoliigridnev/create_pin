@@ -26,7 +26,7 @@ class _CreatePinState extends State<CreatePin> {
         ),
         elevation: 0,
         leading: IconButton(
-          onPressed: () {},
+          onPressed: () {Navigator.pop(context);},
           icon: Icon(Icons.arrow_back_ios, color: Colors.grey[900],),
         ),
         actions: [
