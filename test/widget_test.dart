@@ -8,7 +8,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
-import 'package:pin_cod/main.dart';
+import 'package:pin_cod/create_pin.dart';
 
 void main() {
   testWidgets('Counter increments smoke test', (WidgetTester tester) async {
