@@ -58,6 +58,7 @@ class _CreatePinState extends State<CreatePin> {
                 onCompleted: (value) {
                   if (pinController.text.length == 4) {
                     Navigator.pushNamed(context, '/page3', arguments: pinController.text);
+                    pinController.clear();
                   } else {
                     
                   }

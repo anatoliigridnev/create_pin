@@ -109,6 +109,7 @@ class _ConfirmPinState extends State<ConfirmPin> {
                         );
                       },
                     );
+                    pinController.clear();
                   } else {
                     showDialog(
                       context: context,
@@ -153,6 +154,7 @@ class _ConfirmPinState extends State<ConfirmPin> {
                         );
                       },
                     );
+                    pinController.clear();
                   }
                 },
                 animationDuration: Duration(microseconds: 1),

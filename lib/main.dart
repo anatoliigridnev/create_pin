@@ -57,6 +57,7 @@ class _MyAppState extends State<MyApp> {
                   if (value == '1111') {
                     Navigator.pushNamed(context, '/page2',
                         );
+                        pinController.clear();
                   } else {
                     showDialog(
                         context: context,
@@ -77,6 +78,7 @@ class _MyAppState extends State<MyApp> {
                             ),
                           );
                         },);
+                        pinController.clear();
                   }
                 },
                 animationDuration: Duration(microseconds: 1),
