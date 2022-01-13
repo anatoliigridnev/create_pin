@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pin_cod/confirm_pin.dart';
 import 'package:pin_cod/keypad.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
 
@@ -13,6 +14,8 @@ void main() {
           ),
         ),
       ),
+      routes: {'/page1': (context) => MyApp(),
+        '/page2': (context) => ConfirmPin()},
       home: MyApp()));
 }
 
