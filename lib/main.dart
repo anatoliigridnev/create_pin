@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pin_cod/confirm_pin.dart';
+import 'package:pin_cod/create_pin.dart';
 import 'package:pin_cod/keypad.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
 
@@ -14,8 +15,12 @@ void main() {
           ),
         ),
       ),
-      routes: {'/page1': (context) => MyApp(),
-        '/page2': (context) => ConfirmPin()},
+      routes: {
+        '/page1': (context) => MyApp(),
+        '/page2': (context) => CreatePin(),
+        '/page3': (context) => ConfirmPin(),
+
+      },
       home: MyApp()));
 }
 
@@ -50,25 +55,8 @@ class _MyAppState extends State<MyApp> {
               child: PinCodeTextField(
                 onCompleted: (value) {
                   if (value == '1111') {
-                    showDialog(
-                        context: context,
-                        builder: (context) {
-                          return AlertDialog(
-                            insetPadding:
-                                const EdgeInsets.symmetric(vertical: 0),
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(10),
-                            ),
-                            title: const Center(
-                              child: Text(
-                                'Authentication success',
-                                style: TextStyle(
-                                  fontSize: 15.0,
-                                ),
-                              ),
-                            ),
-                          );
-                        });
+                    Navigator.pushNamed(context, '/page2',
+                        );
                   } else {
                     showDialog(
                         context: context,
@@ -88,7 +76,7 @@ class _MyAppState extends State<MyApp> {
                               ),
                             ),
                           );
-                        });
+                        },);
                   }
                 },
                 animationDuration: Duration(microseconds: 1),
@@ -107,7 +95,6 @@ class _MyAppState extends State<MyApp> {
                   inactiveColor: Color(0xffCFD5E1),
                   activeColor: Color(0xffCFD5E1),
                 ),
-                
                 appContext: context,
                 length: 4,
                 onChanged: (String value) {},

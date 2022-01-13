@@ -57,7 +57,7 @@ class _CreatePinState extends State<CreatePin> {
               child: PinCodeTextField(
                 onCompleted: (value) {
                   if (pinController.text.length == 4) {
-                    Navigator.pushNamed(context, '/page2', arguments: pinController.text);
+                    Navigator.pushNamed(context, '/page3', arguments: pinController.text);
                   } else {
                     
                   }
