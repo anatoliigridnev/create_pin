@@ -3,21 +3,7 @@ import 'package:pin_cod/keypad.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
 import 'confirm_pin.dart';
 
-void main() {
-  runApp(MaterialApp(
-      theme: ThemeData(
-        elevatedButtonTheme: ElevatedButtonThemeData(
-          style: ElevatedButton.styleFrom(
-            fixedSize: const Size(70, 70),
-            elevation: 0,
-            shape: CircleBorder(),
-          ),
-        ),
-      ),
-      routes: {'/page1': (context) => MyApp(),
-        '/page2': (context) => ConfirmPin()},
-      home: MyApp()));
-}
+
 
 class MyApp extends StatefulWidget {
   const MyApp({Key? key}) : super(key: key);

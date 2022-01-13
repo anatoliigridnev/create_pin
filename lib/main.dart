@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pin_cod/keypad.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
-import 'create_pin.dart';
 
 void main() {
   runApp(MaterialApp(
@@ -14,8 +13,6 @@ void main() {
           ),
         ),
       ),
-      routes: {'/page1': (context) => MyApp(),
-        '/page2': (context) => ConfirmPin()},
       home: MyApp()));
 }
 
@@ -32,35 +29,14 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.grey[50],
-        title: Text(
-          'Setup PIN',
-          style: TextStyle(color: Colors.grey[900], fontSize: 15),
-        ),
-        elevation: 0,
-        leading: IconButton(
-          onPressed: () {},
-          icon: Icon(Icons.arrow_back_ios, color: Colors.grey[900],),
-        ),
-        actions: [
-          TextButton(
-            onPressed: () {},
-            child: Text(
-              'Use 6-digits PIN',
-              style: TextStyle(color: Color(0xAA7088af), fontSize: 15),
-            ),
-          ),
-        ],
-      ),
       body: Center(
         child: Column(
           children: [
             SizedBox(
-              height: 60,
+              height: 150,
             ),
             Text(
-              'Create PIN',
+              'Enter your PIN',
               style: TextStyle(color: Color(0xAA7088af), fontSize: 23),
             ),
             SizedBox(
@@ -70,10 +46,46 @@ class _MyAppState extends State<MyApp> {
               width: 170,
               child: PinCodeTextField(
                 onCompleted: (value) {
-                  if (pinController.text.length == 4) {
-                    Navigator.pushNamed(context, '/page2', arguments: pinController.text);
+                  if (value == '1111') {
+                    showDialog(
+                        context: context,
+                        builder: (context) {
+                          return AlertDialog(
+                            insetPadding:
+                                const EdgeInsets.symmetric(vertical: 0),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                            title: const Center(
+                              child: Text(
+                                'Authentication success',
+                                style: TextStyle(
+                                  fontSize: 15.0,
+                                ),
+                              ),
+                            ),
+                          );
+                        });
                   } else {
-                    
+                    showDialog(
+                        context: context,
+                        builder: (context) {
+                          return AlertDialog(
+                            insetPadding:
+                                const EdgeInsets.symmetric(vertical: 0),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                            title: const Center(
+                              child: Text(
+                                'Authentication rejected',
+                                style: TextStyle(
+                                  fontSize: 15.0,
+                                ),
+                              ),
+                            ),
+                          );
+                        });
                   }
                 },
                 animationDuration: Duration(microseconds: 1),
@@ -92,6 +104,7 @@ class _MyAppState extends State<MyApp> {
                   inactiveColor: Color(0xffCFD5E1),
                   activeColor: Color(0xffCFD5E1),
                 ),
+                
                 appContext: context,
                 length: 4,
                 onChanged: (String value) {},
