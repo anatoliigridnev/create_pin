@@ -5,14 +5,14 @@ import 'confirm_pin.dart';
 
 
 
-class MyApp extends StatefulWidget {
-  const MyApp({Key? key}) : super(key: key);
+class CreatePin extends StatefulWidget {
+  const CreatePin({Key? key}) : super(key: key);
 
   @override
-  State<MyApp> createState() => _MyAppState();
+  State<CreatePin> createState() => _CreatePinState();
 }
 
-class _MyAppState extends State<MyApp> {
+class _CreatePinState extends State<CreatePin> {
   TextEditingController pinController = TextEditingController();
 
   @override
